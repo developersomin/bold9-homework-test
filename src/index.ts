@@ -19,4 +19,4 @@ const server = new ApolloServer({
     resolvers,
 });
 
-await startStandaloneServer(server);
+startStandaloneServer(server);
