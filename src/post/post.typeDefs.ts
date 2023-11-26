@@ -9,14 +9,14 @@ export const postTypeDefs = `#graphql
         author: User
         comments: [Comment]
     }
-    type Query {
-        getPosts: [Post]
-    }
     input CreatePostInput {
         title: String!
         content: String
         isPublished: Boolean
         authorId: String!
+    }
+    type Query {
+        getPosts(userId: String!): [Post]
     }
     type Mutation {
         createPost(createPostInput: CreatePostInput!):Post

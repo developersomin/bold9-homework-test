@@ -2,7 +2,8 @@ import { Post, PrismaClient } from '@prisma/client';
 import { ICreatePostInput } from './interface/post.interface.js';
 const prisma = new PrismaClient()
 export class PostService{
-  getPosts():Promise<Post[]>{
+  getPosts(userId:string):Promise<Post[]>{
+    console.log(userId);
     return prisma.post.findMany();
   }
 
