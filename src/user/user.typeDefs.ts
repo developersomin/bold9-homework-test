@@ -1,14 +1,16 @@
 export const userTypeDefs = `#graphql
+scalar DateTime
+
 type User {
     id: String
     email: String
     password: String
     name: String
-    createdAt: String
+    createdAt: DateTime
     posts: [Post]
 }
 type Query {
-    getUsers: User
+    getUsers: [User]
 }
 input CreateUserInput {
     email: String!

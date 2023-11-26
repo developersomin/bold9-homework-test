@@ -5,8 +5,20 @@ export const postTypeDefs = `#graphql
         content: String
         isPublished: Boolean
         authorId: String
-        createdAt: String
+        createdAt: DateTime
         author: User
         comments: [Comment]
+    }
+    type Query {
+        getPosts: [Post]
+    }
+    input CreatePostInput {
+        title: String!
+        content: String
+        isPublished: Boolean
+        authorId: String!
+    }
+    type Mutation {
+        createPost(createPostInput: CreatePostInput!):Post
     }
 `
