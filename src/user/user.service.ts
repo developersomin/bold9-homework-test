@@ -1,4 +1,3 @@
-import * as bcrypt from 'bcryptjs';
 import { ICreateUserInput } from './interface/user.interface.js';
 import { PrismaClient, User } from '@prisma/client';
 const prisma = new PrismaClient()
@@ -14,16 +13,17 @@ export class UserService{
     return prisma.user.findMany();
   }
 
-  async createUser(createUserInput:ICreateUserInput){
-    const user = await this.getUser(createUserInput.email);
+  async createUser(createUserInput:ICreateUserInput):Promise<User>{
+    const { name, password, email } = createUserInput;
+    const user = await this.getUser(email);
     if(user){
       throw new Error("중복된 email 이 있습니다.")
     }
     return prisma.user.create({
       data:{
-        name: createUserInput.name,
-        password: createUserInput.password,
-        email: createUserInput.email,
+        name,
+        password,
+        email
       }
     });
   }

@@ -5,7 +5,7 @@ import { UserService } from './user.service.js';
 const userService = new UserService();
 export const userResolver ={
   Query: {
-    getUsers: () => {
+    getUsers: ():Promise<User[]> => {
       return userService.getUsers();
     },
   },
