@@ -6,8 +6,6 @@ const postService = new PostService();
 export const postResolver ={
   Query: {
     getPosts: (_: any, { userId }: { userId: string }): Promise<Post[]> => {
-      console.log('시작');
-      console.log(userId);
       return postService.getPosts(userId);
     },
   },

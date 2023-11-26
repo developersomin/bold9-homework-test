@@ -22,15 +22,15 @@ model Post {
   isPublished Boolean?  @default(false)
   authorId    String?
   createdAt   DateTime? @default(now())
-  comment     Comment[]
+  comments    Comment[]
   user        User?     @relation(fields: [authorId], references: [id])
 }
 
 model User {
   id        String    @id @default(uuid())
-  email     String    @db.VarChar(45) @unique
+  email     String    @unique @db.VarChar(45)
   password  String    @db.VarChar(20)
   name      String    @db.VarChar(20)
   createdAt DateTime? @default(now())
-  post      Post[]
+  posts     Post[]
 }
