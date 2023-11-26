@@ -50,7 +50,7 @@ type Query {
     getUsers: [User]
     getPosts(userId: String!): [Post]
     getComments: [Comment]
-}
+}   
 
 type Mutation {
     createUser(createUserInput: CreateUserInput!):User
@@ -58,5 +58,3 @@ type Mutation {
     createComment(createCommentInput: CreateCommentInput!):Comment
 }
 `;
-
-

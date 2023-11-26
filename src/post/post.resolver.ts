@@ -5,17 +5,22 @@ import { UserService } from '../user/user.service.js';
 
 const userService = new UserService();
 const postService = new PostService(userService);
-export const postResolver ={
+export const postResolver = {
   Query: {
     getPosts: (_: any, { userId }: { userId: string }): Promise<Post[]> => {
       return postService.getPosts(userId);
     },
   },
-  Mutation:{
-    createPost: async (parent: any, { createPostInput }: {
-      createPostInput: ICreatePostInput
-    }):Promise<Post> => {
-      return  postService.createPost(createPostInput);
+  Mutation: {
+    createPost: async (
+      parent: any,
+      {
+        createPostInput,
+      }: {
+        createPostInput: ICreatePostInput;
+      },
+    ): Promise<Post> => {
+      return postService.createPost(createPostInput);
     },
-  }
-}
+  },
+};

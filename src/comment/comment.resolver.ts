@@ -5,19 +5,24 @@ import { PostService } from '../post/post.service.js';
 import { UserService } from '../user/user.service.js';
 
 const userService = new UserService();
-const postService = new PostService(userService)
+const postService = new PostService(userService);
 const commentService = new CommentService(postService);
-export const commentResolver ={
+export const commentResolver = {
   Query: {
     getComments: (): Promise<Comment[]> => {
       return commentService.getComments();
     },
   },
-  Mutation:{
-    createComment: async (parent: any, { createCommentInput }: {
-      createCommentInput: ICreateCommentInput
-    }):Promise<Comment> => {
-      return  commentService.createComment(createCommentInput);
+  Mutation: {
+    createComment: async (
+      parent: any,
+      {
+        createCommentInput,
+      }: {
+        createCommentInput: ICreateCommentInput;
+      },
+    ): Promise<Comment> => {
+      return commentService.createComment(createCommentInput);
     },
-  }
-}
+  },
+};
