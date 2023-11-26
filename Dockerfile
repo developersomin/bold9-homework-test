@@ -5,5 +5,5 @@ COPY ./yarn.lock /api/
 WORKDIR /api/
 RUN yarn install
 COPY . /api/
-
-CMD yarn watch & yarn dev
+RUN yarn build
+CMD yarn start
