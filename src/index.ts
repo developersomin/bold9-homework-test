@@ -5,6 +5,7 @@ import { userTypeDefs } from './user/user.typeDefs.js';
 import { postTypeDefs } from './post/post.typeDefs.js';
 import { commentTypeDefs } from './comment/comment.typeDefs.js';
 import { postResolver } from './post/post.resolver.js';
+import { commentResolver } from './comment/comment.resolver.js';
 
 const typeDefs =`
     ${userTypeDefs}
@@ -13,8 +14,16 @@ const typeDefs =`
 `
 
 const resolvers = {
-    ...userResolver,
-    ...postResolver
+    Query:{
+        ...userResolver.Query,
+        ...postResolver.Query,
+        ...commentResolver.Query,
+    },
+    Mutation:{
+        ...userResolver.Mutation,
+        ...postResolver.Mutation,
+        ...commentResolver.Mutation,
+    }
 };
 
 const server = new ApolloServer({

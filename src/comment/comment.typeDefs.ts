@@ -6,4 +6,14 @@ export const commentTypeDefs = `#graphql
         createdAt: DateTime
         post: Post
     }
+    type Query {
+        getComments: [Comment]
+    }
+    input CreateCommentInput {
+        content: String!
+        postId: String!
+    }
+    type Mutation {
+        createComment(createCommentInput: CreateCommentInput!):Comment
+    }
 `

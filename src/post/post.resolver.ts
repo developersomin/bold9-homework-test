@@ -5,8 +5,10 @@ import { PostService } from './post.service.js';
 const postService = new PostService();
 export const postResolver ={
   Query: {
-    getPosts: (): Promise<Post[]> => {
-      return postService.getPosts();
+    getPosts: (_: any, { userId }: { userId: string }): Promise<Post[]> => {
+      console.log('시작');
+      console.log(userId);
+      return postService.getPosts(userId);
     },
   },
   Mutation:{
