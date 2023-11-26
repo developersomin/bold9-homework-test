@@ -7,13 +7,13 @@
 ### Installation
 
 ```
-$ docker-compose build
+$ yarn build
 ```
 
 ### Running the app
 
 ```
-$ docker-compose up
+$ yarn start
 ```
 
 ### Seed
