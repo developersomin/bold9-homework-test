@@ -3,7 +3,7 @@ export const commentTypeDefs = `#graphql
         id: String
         content: String
         postId: String
-        createdAt: String
+        createdAt: DateTime
         post: Post
     }
 `
