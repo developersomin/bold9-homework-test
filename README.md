@@ -568,4 +568,7 @@ query{
 - Post: content 는 50% 확률로 graphql 문자열 포함
 
 ### 4. Github
+
+![git](https://github.com/developersomin/bold9-homework-test/assets/127207131/0343d7ab-ffe4-47bb-ab11-64413275c50a)
+
 - 개인 과제이지만 git flow 전략 사용 
