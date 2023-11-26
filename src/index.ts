@@ -9,24 +9,24 @@ const typeDefs = `
 `;
 
 const resolvers = {
-    Query: {
-        ...userResolver.Query,
-        ...postResolver.Query,
-        ...commentResolver.Query,
-    },
-    Mutation: {
-        ...userResolver.Mutation,
-        ...postResolver.Mutation,
-        ...commentResolver.Mutation,
-    },
+  Query: {
+    ...userResolver.Query,
+    ...postResolver.Query,
+    ...commentResolver.Query,
+  },
+  Mutation: {
+    ...userResolver.Mutation,
+    ...postResolver.Mutation,
+    ...commentResolver.Mutation,
+  },
 };
 
 const server = new ApolloServer({
-    playground: true,
-    typeDefs,
-    resolvers,
+  playground: true,
+  typeDefs,
+  resolvers,
 });
 
 server.listen().then(({ url }) => {
-    console.log(`Server 4000 ${url}`);
+  console.log(`Server 4000 ${url}`);
 });
